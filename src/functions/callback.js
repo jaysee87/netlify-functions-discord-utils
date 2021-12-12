@@ -14,21 +14,25 @@ exports.handler = async function(event, context) {
 
   const url = `${baseUrl}/oauth2/token`
 
-  const response = await axios({
-    method: 'post',
-    url,
-    data,
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
+  try {
+    const response = await axios({
+      method: 'post',
+      url,
+      data,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
 
-  return {
-    statusCode: 200,
-    headers: {
-      'Cache-Control': 'no-cache',
-      'Access-Control-Allow-Origin': '*',
-    },
-    body: JSON.stringify({ tokens: response.data }),
+    return {
+      statusCode: 200,
+      headers: {
+        'Cache-Control': 'no-cache',
+        'Access-Control-Allow-Origin': '*',
+      },
+      body: JSON.stringify({ tokens: response.data }),
+    }
+  } catch (err) {
+      return err.response
   }
 }
