@@ -1,7 +1,7 @@
 const axios = require('axios')
 
 exports.handler = async function(event, context) {
-  const baseUrl = `https://discordapp.com/api`
+  const baseUrl = `https://discord.com/api`
 
   const data = {
     grant_type: 'authorization_code',
@@ -20,7 +20,7 @@ exports.handler = async function(event, context) {
       url,
       data,
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/x-www-form-urlencoded'
       }
     })
 
