@@ -14,6 +14,7 @@ exports.handler = async function(event, context) {
 
   const url = `${baseUrl}/oauth2/token`
 
+  console.log('hello');
   try {
     const response = await axios({
       method: 'post',
@@ -24,6 +25,7 @@ exports.handler = async function(event, context) {
       }
     })
 
+    console.log(response);
     return {
       statusCode: 200,
       headers: {
@@ -33,6 +35,7 @@ exports.handler = async function(event, context) {
       body: response.data,
     }
   } catch (err) {
+      console.log(err)
       return err.response
   }
 }
