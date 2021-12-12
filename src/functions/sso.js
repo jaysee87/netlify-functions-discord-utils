@@ -1,7 +1,7 @@
 const querystring = require('querystring')
 
 exports.handler = async function(event, context) {
-  const baseUrl = `https://discordapp.com/api`
+  const baseUrl = `https://discord.com/api`
 
   const qs = querystring.stringify({
     response_type: 'code',
