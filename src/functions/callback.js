@@ -32,6 +32,7 @@ exports.handler = async function(event, context) {
       body: response.data,
     }
   } catch (err) {
+      console.log(err.response.config)
       console.log(err.response.data)
       return err.response
   }
