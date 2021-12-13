@@ -31,7 +31,7 @@ exports.handler = async function(event, context) {
         'Cache-Control': 'no-cache',
         'Access-Control-Allow-Origin': '*',
       },
-      body: response.data,
+      body: JSON.stringify(response.data)
     }
   } catch (err) {
       console.log(err.response.config)
