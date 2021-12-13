@@ -16,10 +16,11 @@ exports.handler = async function(event, context) {
 
   console.log('hello');
   try {
-    const response = await axios.post(url, data, { 
+    const response = await axios.post(url, { 
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
-        }
+        },
+        params: data
     })
 
     console.log(response);
