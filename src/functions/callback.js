@@ -18,7 +18,7 @@ exports.handler = async function(event, context) {
   try {
     const response = await axios.post(url, {...data},
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded
+        'Content-Type': 'application/x-www-form-urlencoded'
       }
     })
 
@@ -32,7 +32,7 @@ exports.handler = async function(event, context) {
       body: response.data,
     }
   } catch (err) {
-      console.log(err.response)
+      console.log(err.response.data)
       return err.response
   }
 }
