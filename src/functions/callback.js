@@ -19,7 +19,7 @@ exports.handler = async function(event, context) {
     const response = await axios.post(url, {
       ...data,
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/x-www-form-urlencoded
       }
     })
 
