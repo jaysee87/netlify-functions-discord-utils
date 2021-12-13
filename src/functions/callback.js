@@ -1,10 +1,10 @@
 const axios = require('axios')
-const url = require('url')
+const {URLSearchParams} = require('url')
 
 exports.handler = async function(event, context) {
   const baseUrl = `https://discord.com/api`
 
-  const data = new url.URLSearchParams({
+  const data = new URLSearchParams({
     grant_type: 'authorization_code',
     code: event.queryStringParameters.code,
     client_id: process.env.CLIENT_ID,
