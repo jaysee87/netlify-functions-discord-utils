@@ -16,7 +16,14 @@ exports.handler = async function(event, context) {
 
   console.log('hello');
   try {
-    const response = await axios.post(url, { 
+    const response = await axios.post(url, {
+      grant_type: 'authorization_code',
+      code: event.queryStringParameters.code,
+      client_id: process.env.CLIENT_ID,
+      client_secret: process.env.CLIENT_SECRET,
+      scope: process.env.OAUTH_SCOPES,
+      redirect_uri: process.env.REDIRECT_URI,
+    },{ 
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
         },
